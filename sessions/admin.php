@@ -1,16 +1,15 @@
 <?php 
 
 session_start();
-
+include('functions.php');
 
 /*
  * Check if the user hase been logged in
  * ---------------------------------------------*/
-if(!isset($_SESSION['username'])){
+if(!is_user_logged_in()){
 	header('Location: login.php');
 	die();
 }
-
 
 $username = $_SESSION['username'];
 $password = $_SESSION['password'];
