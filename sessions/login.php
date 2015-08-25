@@ -1,9 +1,8 @@
 <?php 
-//Defining username and password constants
-	define ('USERNAME', 'dengri');
-	define ('PASSWORD', '1234567');
 
 	session_start();
+	include('config.php');
+	include('functions.php');
 
 	/*
 	 * Check if the form has been submitted
@@ -18,7 +17,7 @@
 		 * Check if the Login and Password are correct
 		 * ---------------------------------------------------*/
 
-		if ($username == USERNAME && $password == PASSWORD){
+		if (validate_user_credentials($username, $password)){
 			$_SESSION['username'] = $username;
 			$_SESSION['password'] = $password;
 			header('Location: ./admin.php');
